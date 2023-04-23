@@ -1,0 +1,15 @@
+:root {
+  /*  variables to hold color information
+    text color, card background color, interactable color, column color, background color
+  */
+  --text-color: #ffffff;
+  --interactable-color: #e06464;
+  --card-color: #a3a2a2;
+  --column-color: #424242;
+  --background-color: #201e1e;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

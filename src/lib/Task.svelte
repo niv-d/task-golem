@@ -18,7 +18,9 @@
   <tag-name>{tag}</tag-name>
   <date-created>{formatDate(dateCreated)}</date-created>
   <delete-button />
-  <task-name>{task}</task-name>
+  <task-name>
+    {task}
+  </task-name>
   <buttons-first>
     <RoundButton>
       <arrow class="right" />
@@ -64,37 +66,26 @@
     box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
       -2px -2px 4px rgba(255, 255, 255, 0.4),
       2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
   }
 
   tag-name {
     grid-area: tag-name;
     font-size: 0.8rem;
-    font-weight: 600;
-    color: #fff;
-    background: #ff6b6b;
-    border-radius: 5px;
-    padding: 5px;
     text-align: center;
   }
 
   date-created {
     grid-area: date-created;
     font-size: 0.8rem;
-    font-weight: 600;
-    color: #fff;
-    background: #ff6b6b;
-    border-radius: 5px;
-    padding: 5px;
     text-align: center;
+    cursor: grab;
+    user-select: none;
   }
 
   delete-button {
     grid-area: delete;
     font-size: 0.8rem;
-    font-weight: 600;
-    color: #fff;
-    background: #ff6b6b;
-    border-radius: 5px;
     padding: 5px;
     text-align: center;
   }
@@ -102,10 +93,28 @@
   task-name {
     grid-area: task-name;
     font-size: 1.2rem;
-    font-weight: 600;
     color: #333;
-    padding: 5px;
+    margin: 0.5em;
     text-align: center;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  task-name:hover {
+    background: var(--interactable-color);
+    box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
+      -2px -2px 4px rgba(255, 255, 255, 0.4),
+      2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  task-name:active {
+    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 2px rgba(255, 255, 255, 0.075),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.15);
   }
 
   arrow {
@@ -145,8 +154,6 @@
   date-due {
     grid-area: date-due;
     font-size: 0.8rem;
-    font-weight: 600;
-    border-radius: 5px;
     padding: 5px;
     display: flex;
     align-items: center;

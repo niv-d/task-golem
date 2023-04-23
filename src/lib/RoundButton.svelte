@@ -23,6 +23,12 @@
       -2px -2px 4px rgba(255, 255, 255, 0.4),
       2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
+  button:active {
+    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 2px rgba(255, 255, 255, 0.075),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  }
   .hidden {
     box-shadow: unset;
     background: unset;
@@ -33,7 +39,7 @@
       -2px -2px 4px rgba(255, 255, 255, 0.4),
       2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
-  button:active {
+  .hidden:active {
     box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
       inset -2px -2px 4px rgba(255, 255, 255, 0.5),
       inset 2px 2px 2px rgba(255, 255, 255, 0.075),

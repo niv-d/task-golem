@@ -1,6 +1,11 @@
+<script>
+  import Task from './lib/Task.svelte';
+</script>
+
 <app-grid>
   <toolbar />
   <columns />
+  <Task />
 </app-grid>
 
 <style>

@@ -6,8 +6,8 @@
 
 <style>
   button {
-    margin: 0.3em;
-    padding: 0.8em 1.5em;
+    margin: 0 0.3em;
+    padding: 0.5em 1em;
     background: var(--interactable-color);
     border: none;
     border-radius: 0.5rem;

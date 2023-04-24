@@ -16,7 +16,7 @@ describe('Task Component', () => {
     });
 
     expect(host.innerHTML).toContain(formattedDate);
-    expect(host.innerHTML).toContain('click to set task name');
+    expect(host.innerHTML).toContain('click to set task');
     expect(host.innerHTML).toContain('unset');
     expect(host.innerHTML).toContain('📆');
   });

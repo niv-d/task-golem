@@ -3,7 +3,7 @@
 
   export let tag = 'unset';
   export let dateCreated = new Date();
-  export let task = 'click to set task name';
+  export let task = 'click to set task';
   export let dateDue = null;
 
   const formatDate = (date) =>
@@ -68,7 +68,7 @@
       2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
     font-weight: 600;
     font-size: 0.8rem;
-    max-width: 320px;
+    max-width: 300px;
   }
 
   tag-name {

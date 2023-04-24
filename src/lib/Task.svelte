@@ -31,9 +31,9 @@
   </buttons-first>
   <date-due>
     {#if dateDue}
-      {dateDue}
+      {formatDate(dateDue)}
     {:else}
-      <RoundButton hidden={true}>due date</RoundButton>
+      <RoundButton hidden={true}>📆</RoundButton>
     {/if}
   </date-due>
   <buttons-second>
@@ -60,7 +60,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background: var(--task-color);
-    padding: 10px;
+    padding: 5px;
     margin: 10px;
 
     box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),

@@ -18,10 +18,11 @@ describe('Task Component', () => {
     expect(host.innerHTML).toContain(formattedDate);
     expect(host.innerHTML).toContain('click to set task name');
     expect(host.innerHTML).toContain('unset');
-    expect(host.innerHTML).toContain('due date');
+    expect(host.innerHTML).toContain('📆');
   });
   test('Render Custom Props', () => {
     const todaysDate = new Date('2023-04-23');
+    const dueDate = new Date('2023-04-24');
 
     const host = document.createElement('div');
     document.body.appendChild(host);
@@ -31,18 +32,19 @@ describe('Task Component', () => {
         tag: 'test',
         dateCreated: todaysDate,
         task: 'task_name',
-        dateDue: todaysDate,
+        dateDue: dueDate,
       },
     });
     expect(instance).toBeTruthy();
 
-    const formattedDate = 'Apr 23, 2023';
+    const formattedTodaysDate = 'Apr 23, 2023';
+    const formattedDueDate = 'Apr 24, 2023';
 
-    expect(host.innerHTML).toContain(formattedDate);
+    expect(host.innerHTML).toContain(formattedTodaysDate);
     expect(host.innerHTML).toContain('task_name');
     expect(host.innerHTML).toContain('test');
-    expect(host.innerHTML).toContain(formattedDate);
-    expect(host.innerHTML).not.toContain('due date');
+    expect(host.innerHTML).toContain(formattedDueDate);
+    expect(host.innerHTML).not.toContain('📆');
   });
   // Clicking arrows causes expected event
   test('Clicking arrows causes expected event', () => {});

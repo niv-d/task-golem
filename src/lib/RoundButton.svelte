@@ -8,10 +8,10 @@
   button {
     margin: 0 0.3em;
     padding: 0.5em 1em;
-    background: var(--interactable-color);
+    color: var(--interactable-color);
+    background: #c2c2c2;
     border: none;
     border-radius: 0.5rem;
-    color: #444;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.2rem;
@@ -34,7 +34,7 @@
     background: unset;
   }
   .hidden:hover {
-    background: var(--interactable-color);
+    background: #c2c2c2;
     box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
       -2px -2px 4px rgba(255, 255, 255, 0.4),
       2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);

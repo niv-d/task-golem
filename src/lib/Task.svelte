@@ -91,7 +91,6 @@
   task-name {
     grid-area: task-name;
     font-size: 1.2rem;
-    color: #333;
     margin: 0.5em;
     text-align: center;
     transition: 0.2s ease-in-out;
@@ -101,9 +100,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--interactable-color);
   }
   task-name:hover {
-    background: var(--interactable-color);
+    background: #c2c2c2;
     box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
       -2px -2px 4px rgba(255, 255, 255, 0.4),
       2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -116,7 +116,7 @@
   }
 
   arrow {
-    border: solid black;
+    border: solid var(--interactable-color);
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;

@@ -16,7 +16,7 @@ describe('Task Component', () => {
     });
 
     expect(host.innerHTML).toContain(formattedDate);
-    expect(host.innerHTML).toContain('click to edit task!');
+    expect(host.innerHTML).toContain('edit me');
     expect(host.innerHTML).toContain('unset');
     expect(host.innerHTML).toContain('add due date');
   });
@@ -43,4 +43,6 @@ describe('Task Component', () => {
     expect(host.innerHTML).toContain('test');
     expect(host.innerHTML).toContain(formattedDate);
   });
+  // Clicking arrows causes expected event
+  test('Clicking arrows causes expected event', () => {});
 });

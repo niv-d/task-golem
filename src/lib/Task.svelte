@@ -3,7 +3,7 @@
 
   export let tag = 'unset';
   export let dateCreated = new Date();
-  export let task = 'click to edit task!';
+  export let task = 'edit me';
   export let dateDue = null;
 
   const formatDate = (date) =>
@@ -67,17 +67,16 @@
       -2px -2px 4px rgba(255, 255, 255, 0.4),
       2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
     font-weight: 600;
+    font-size: 0.8rem;
   }
 
   tag-name {
     grid-area: tag-name;
-    font-size: 0.8rem;
     text-align: center;
   }
 
   date-created {
     grid-area: date-created;
-    font-size: 0.8rem;
     text-align: center;
     cursor: grab;
     user-select: none;
@@ -85,8 +84,6 @@
 
   delete-button {
     grid-area: delete;
-    font-size: 0.8rem;
-    padding: 5px;
     text-align: center;
   }
 
@@ -153,8 +150,6 @@
 
   date-due {
     grid-area: date-due;
-    font-size: 0.8rem;
-    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;

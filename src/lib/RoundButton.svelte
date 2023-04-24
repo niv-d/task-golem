@@ -14,7 +14,6 @@
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 700;
-    letter-spacing: 0.2rem;
     text-align: center;
     outline: none;
     cursor: pointer;

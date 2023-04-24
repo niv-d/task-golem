@@ -3,7 +3,7 @@
 
   export let tag = 'unset';
   export let dateCreated = new Date();
-  export let task = 'edit me';
+  export let task = 'click to set task name';
   export let dateDue = null;
 
   const formatDate = (date) =>

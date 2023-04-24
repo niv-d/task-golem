@@ -3,7 +3,7 @@
     text color, card background color, interactable color, column color, background color
   */
   --text-color: #ffffff;
-  --interactable-color: #323aa8;
+  --interactable-color: #555454;
   --task-color: #a3a2a2;
   --column-color: #424242;
   --background-color: #201e1e;
@@ -15,6 +15,6 @@ body {
 }
 
 * {
-  font-weight: 600;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Secular One', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }

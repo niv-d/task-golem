@@ -33,7 +33,7 @@
     {#if dateDue}
       {dateDue}
     {:else}
-      <RoundButton hidden={true}>add due date</RoundButton>
+      <RoundButton hidden={true}>due date</RoundButton>
     {/if}
   </date-due>
   <buttons-second>
@@ -51,7 +51,7 @@
   task-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.2fr 2.6fr 0.2fr;
+    grid-template-rows: 0.2fr 1.5fr 0.2fr;
     gap: 0px 0px;
     grid-template-areas:
       'tag-name date-created delete'
@@ -68,6 +68,7 @@
       2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
     font-weight: 600;
     font-size: 0.8rem;
+    max-width: 320px;
   }
 
   tag-name {

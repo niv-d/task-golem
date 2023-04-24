@@ -13,3 +13,8 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
+
+* {
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+}

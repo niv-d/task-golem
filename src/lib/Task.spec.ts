@@ -18,7 +18,7 @@ describe('Task Component', () => {
     expect(host.innerHTML).toContain(formattedDate);
     expect(host.innerHTML).toContain('edit me');
     expect(host.innerHTML).toContain('unset');
-    expect(host.innerHTML).toContain('add due date');
+    expect(host.innerHTML).toContain('due date');
   });
   test('Render Custom Props', () => {
     const todaysDate = new Date('2023-04-23');

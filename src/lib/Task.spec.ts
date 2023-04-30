@@ -95,13 +95,13 @@ test('click to edit task', () => {
   expect(instance).toBeTruthy();
 
   //clicking on the 'click to set task' text should cause the task to be editable input field
-  const clickToSetTask = host.querySelector('task-button');
+  const clickToSetTask = host.querySelector('task-name');
   expect(clickToSetTask).toBeTruthy();
   expect(host.querySelector('input')).not.toBeTruthy();
   clickToSetTask.dispatchEvent(new MouseEvent('click'));
 
   // the input field should be visible
-  const input = host.querySelector('input');
+  const input = host.querySelector('textarea');
   expect(input).toBeTruthy();
 
   // the input field should have the same text as the 'click to set task' text

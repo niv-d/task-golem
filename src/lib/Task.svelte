@@ -29,29 +29,30 @@
   <tag-name>{tag}</tag-name>
   <date-created on:drag>{formatDate(dateCreated)}</date-created>
   <delete-button />
-  <task-name>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <task-name
+    on:click={() => {
+      if (input) return;
+      input = true;
+      //TODO: This works, but seems awful.
+      setTimeout(() => {
+        taskRef.select();
+      }, 0);
+    }}
+  >
     {#if input}
-      <input
+      <textarea
+        aria-multiline="true"
         bind:this={taskRef}
-        type="text"
         bind:value={task}
         on:blur={() => {
           input = false;
         }}
       />
     {:else}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <task-button
-        on:click={() => {
-          input = true;
-          //TODO: This works, but seems awful.
-          setTimeout(() => {
-            taskRef.select();
-          }, 0);
-        }}
-      >
+      <RoundButton hidden>
         {task}
-      </task-button>
+      </RoundButton>
     {/if}
   </task-name>
   <buttons-first>
@@ -123,7 +124,7 @@
 
   task-name {
     grid-area: task-name;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0.5em;
     text-align: center;
     transition: 0.2s ease-in-out;
@@ -135,18 +136,40 @@
     justify-content: center;
     color: var(--interactable-color);
   }
-  task-name:hover {
+
+  textarea {
+    width: 100%;
+    height: auto;
+    min-height: 2fr;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 1em;
+    margin: 1em;
+
+    border-radius: 10px;
+    background-color: #a3a2a2;
+    box-shadow: inset 5px 5px 10px #8f8f8f, inset -5px -5px 10px #b1b1b1;
+    color: var(--interactable-color);
+    font-weight: 600;
+  }
+
+  textarea::selection {
+    background-color: #bdbdbd;
+  }
+
+  /* task-name:hover {
     background: #c2c2c2;
     box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
       -2px -2px 4px rgba(255, 255, 255, 0.4),
       2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
   task-name:active {
-    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
-      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
-      inset 2px 2px 2px rgba(255, 255, 255, 0.075),
-      inset 2px 2px 4px rgba(0, 0, 0, 0.15);
-  }
+    background: #c2c2c2;
+    box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
+      -2px -2px 4px rgba(255, 255, 255, 0.4),
+      2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
+  } */
 
   arrow {
     border: solid var(--interactable-color);

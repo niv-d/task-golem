@@ -2,10 +2,12 @@
   export let hidden = false;
 </script>
 
-<button on:click class:hidden><slot>no button text?</slot></button>
+<button on:click class:hidden><span><slot>no button text?</slot></span></button>
 
 <style>
   button {
+    min-height: 10px;
+    min-width: 10px;
     margin: 0 0.3em;
     padding: 0.5em 1em;
     color: var(--interactable-color);

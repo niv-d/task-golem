@@ -1,5 +1,8 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   import RoundButton from './RoundButton.svelte';
+
+  const dispatch = createEventDispatcher();
 
   export let tag = 'unset';
   export let dateCreated = new Date();
@@ -12,6 +15,12 @@
       month: 'short',
       day: 'numeric',
     });
+
+  const handleDirection = (direction) => () => {
+    dispatch('direction', {
+      direction,
+    });
+  };
 </script>
 
 <task-container>
@@ -22,10 +31,10 @@
     {task}
   </task-name>
   <buttons-first>
-    <RoundButton>
+    <RoundButton on:click={handleDirection('right')}>
       <arrow class="right" />
     </RoundButton>
-    <RoundButton>
+    <RoundButton on:click={handleDirection('up')}>
       <arrow class="up" />
     </RoundButton>
   </buttons-first>
@@ -37,10 +46,10 @@
     {/if}
   </date-due>
   <buttons-second>
-    <RoundButton>
+    <RoundButton on:click={handleDirection('down')}>
       <arrow class="down" />
     </RoundButton>
-    <RoundButton>
+    <RoundButton on:click={handleDirection('left')}>
       <arrow class="left" />
     </RoundButton>
   </buttons-second>

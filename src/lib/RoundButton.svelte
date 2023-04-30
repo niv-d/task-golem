@@ -2,7 +2,7 @@
   export let hidden = false;
 </script>
 
-<button class:hidden><slot /></button>
+<button on:click class:hidden><slot>no button text?</slot></button>
 
 <style>
   button {

@@ -72,9 +72,9 @@
     padding: 5px;
     margin: 10px;
 
-    box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
+    /* box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
       -2px -2px 4px rgba(255, 255, 255, 0.4),
-      2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
+      2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1); */
     font-weight: 600;
     font-size: 0.8rem;
     max-width: 300px;

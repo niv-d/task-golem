@@ -6,8 +6,10 @@
 
   export let tag = 'unset';
   export let dateCreated = new Date();
+  let taskRef = null;
   export let task = 'click to set task';
   export let dateDue = null;
+  let input = false;
 
   const formatDate = (date) =>
     date.toLocaleDateString('en-US', {
@@ -25,10 +27,32 @@
 
 <task-container>
   <tag-name>{tag}</tag-name>
-  <date-created>{formatDate(dateCreated)}</date-created>
+  <date-created on:drag>{formatDate(dateCreated)}</date-created>
   <delete-button />
   <task-name>
-    {task}
+    {#if input}
+      <input
+        bind:this={taskRef}
+        type="text"
+        bind:value={task}
+        on:blur={() => {
+          input = false;
+        }}
+      />
+    {:else}
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <task-button
+        on:click={() => {
+          input = true;
+          //TODO: This works, but seems awful.
+          setTimeout(() => {
+            taskRef.select();
+          }, 0);
+        }}
+      >
+        {task}
+      </task-button>
+    {/if}
   </task-name>
   <buttons-first>
     <RoundButton on:click={handleDirection('right')}>

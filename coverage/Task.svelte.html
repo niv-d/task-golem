@@ -22,13 +22,13 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">174/174</span>
+            <span class="fraction">198/198</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">100% </span>
+            <span class="strong">33.33% </span>
             <span class="quiet">Branches</span>
-            <span class="fraction">1/1</span>
+            <span class="fraction">2/6</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -40,7 +40,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">174/174</span>
+            <span class="fraction">198/198</span>
           </div>
         </div>
         <p class="quiet">
@@ -230,7 +230,55 @@
 <a name='L172'></a><a href='#L172'>172</a>
 <a name='L173'></a><a href='#L173'>173</a>
 <a name='L174'></a><a href='#L174'>174</a>
-<a name='L175'></a><a href='#L175'>175</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -412,8 +460,10 @@
 &nbsp;
   export let tag = 'unset';
   export let dateCreated = new Date();
+  let taskRef = null;
   export let task = 'click to set task';
   export let dateDue = null;
+  let input = false;
 &nbsp;
   const formatDate = (date) =&gt;
     date.toLocaleDateString('en-US', {
@@ -430,11 +480,33 @@
 &lt;/script&gt;
 &nbsp;
 &lt;task-container&gt;
-  &lt;tag-name&gt;{tag}&lt;/tag-name&gt;
-  &lt;date-created&gt;{formatDate(dateCreated)}&lt;/date-created&gt;
+  &lt;tag-name&gt;{<span class="branch-0 cbranch-no" title="branch not covered" >tag}&lt;/tag-name&gt;</span>
+  &lt;date-created on:drag&gt;{<span class="branch-0 cbranch-no" title="branch not covered" >formatDate(dateCreated<span class="branch-0 cbranch-no" title="branch not covered" >)}&lt;/date-created&gt;</span></span>
   &lt;delete-button /&gt;
   &lt;task-name&gt;
-    {task}
+    {#if input}
+      &lt;input
+        bind:this={taskRef}
+        type="text"
+        bind:value={<span class="branch-0 cbranch-no" title="branch not covered" >task}</span>
+        on:blur={() =&gt; {
+          input = false;
+        }}
+      /&gt;
+    {:else}
+      &lt;!-- svelte-ignore a11y-click-events-have-key-events --&gt;
+      &lt;task-button
+        on:click={() =&gt; {
+          input = true;
+          //TODO: This works, but seems awful.
+          setTimeout(() =&gt; {
+            taskRef.select();
+          }, 0);
+        }}
+      &gt;
+        {task}
+      &lt;/task-button&gt;
+    {/if}
   &lt;/task-name&gt;
   &lt;buttons-first&gt;
     &lt;RoundButton on:click={handleDirection('right')}&gt;
@@ -592,7 +664,7 @@
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2023-04-30T02:59:38.236Z
+      at 2023-04-30T03:43:51.550Z
     </div>
     <script src="prettify.js"></script>
     <script>

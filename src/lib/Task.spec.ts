@@ -71,3 +71,51 @@ test('Clicking arrows causes expected event', () => {
     expect(handleDirection).toHaveBeenCalledWith({ direction });
   });
 });
+
+test('bubble up on:drag events', () => {
+  const handleDrag = vi.fn();
+  const host = document.createElement('div');
+  document.body.appendChild(host);
+  const instance = new Task({
+    target: host,
+  });
+  expect(instance).toBeTruthy();
+  instance.$on('drag', handleDrag);
+
+  const dragEvent = new Event('drag');
+  host.querySelector('date-created').dispatchEvent(dragEvent);
+
+  expect(handleDrag).toHaveBeenCalledTimes(1);
+});
+
+test('click to edit task', () => {
+  const host = document.createElement('div');
+  document.body.appendChild(host);
+  const instance = new Task({ target: host });
+  expect(instance).toBeTruthy();
+
+  //clicking on the 'click to set task' text should cause the task to be editable input field
+  const clickToSetTask = host.querySelector('task-button');
+  expect(clickToSetTask).toBeTruthy();
+  expect(host.querySelector('input')).not.toBeTruthy();
+  clickToSetTask.dispatchEvent(new MouseEvent('click'));
+
+  // the input field should be visible
+  const input = host.querySelector('input');
+  expect(input).toBeTruthy();
+
+  // the input field should have the same text as the 'click to set task' text
+  expect(input.value).toBe(clickToSetTask.textContent);
+
+  // clicking on the input field should not cause it to disappear
+  input.dispatchEvent(new MouseEvent('click'));
+  expect(input).toBeTruthy();
+
+  // clicking off the input field should cause it to disappear, and send an event
+  const handleTask = vi.fn();
+  instance.$on('taskUpdate', (e) => handleTask(e.detail));
+  document.body.dispatchEvent(new MouseEvent('click'));
+  expect(input).not.toHaveClass('visible');
+  expect(handleTask).toHaveBeenCalledTimes(1);
+  expect(handleTask).toHaveBeenCalledWith({ task: input.value });
+});
